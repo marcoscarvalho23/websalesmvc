@@ -6,6 +6,7 @@ using SalesWebMVC.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
 string psqlConnection = builder.Configuration.GetConnectionString("SalesWebMVCContext");
 
 builder.Services.AddDbContext<SalesWebMVCContext>(options =>
