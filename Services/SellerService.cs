@@ -19,7 +19,10 @@ public class SellerService
 
     public void Insert(Seller obj)
     {
-        obj.Department = _context.Department.First();
+        int highestId = _context.Seller.Max(sl => (int?)sl.Id) ?? 0;
+        int nextId = highestId + 1;
+        
+        obj.Id = nextId;
         _context.Add(obj);
         _context.SaveChanges();
     }
