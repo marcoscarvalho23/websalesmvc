@@ -19,11 +19,27 @@ public class SellerService
 
     public void Insert(Seller obj)
     {
-        int highestId = _context.Seller.Max(sl => (int?)sl.Id) ?? 0;
+        int highestId = _context.Seller.Max(
+            sl => (int?)sl.Id) ?? 0;
+        
         int nextId = highestId + 1;
         
         obj.Id = nextId;
         _context.Add(obj);
+        _context.SaveChanges();
+    }
+
+    public Seller FindById(int id) 
+    {
+        return _context.Seller.FirstOrDefault(
+            obj => obj.Id == id
+        );
+    }
+
+    public void Remove(int id)
+    {
+        var obj = _context.Seller.Find(id);
+        _context.Seller.Remove(obj);
         _context.SaveChanges();
     }
 }
