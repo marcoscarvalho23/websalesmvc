@@ -1,4 +1,6 @@
 using System.Configuration;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Npgsql;
@@ -21,6 +23,15 @@ builder.Services.AddScoped<SeedingService>();
 builder.Services.AddScoped<SellerService>();
 builder.Services.AddScoped<DepartmentService>();
 
+
+var enUs = new CultureInfo("en-US");
+var localizationOptions = new RequestLocalizationOptions 
+{
+    DefaultRequestCulture = new RequestCulture(enUs),
+    SupportedCultures = new List<CultureInfo> { enUs },
+    SupportedUICultures = new List<CultureInfo> { enUs }
+};
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -32,7 +43,8 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.Services.CreateScope().ServiceProvider.GetRequiredService<SeedingService>().Seed();
-
+app.UseRequestLocalization(localizationOptions);
+ 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 

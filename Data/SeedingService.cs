@@ -27,12 +27,12 @@ public class SeedingService
         Department d3 = new Department { Id = 3, Name = "Fashion" };
         Department d4 = new Department { Id = 4, Name = "Computers" };
 
-        Seller s1 = new Seller { Id = 1, Name = "Bob Brown", Email = "bob@gmail.com", Birthday = new DateTime(1998, 4, 21), BaseSalary = 1000.0, Department = d1 };
-        Seller s2 = new Seller { Id = 2, Name = "Maria Green", Email = "maria@gmail.com", Birthday = new DateTime(1979, 12, 31), BaseSalary = 3500.0, Department = d2 };
-        Seller s3 = new Seller { Id = 3, Name = "Alex Grey", Email = "alexG@gmail.com", Birthday = new DateTime(1988, 1, 15), BaseSalary = 2200.0, Department = d1 };
-        Seller s4 = new Seller { Id = 4, Name = "Martha Red", Email = "martha@gmail.com", Birthday = new DateTime(1993, 11, 30), BaseSalary = 3000.0, Department = d4 };
-        Seller s5 = new Seller { Id = 5, Name = "Donald Blue", Email = "donald@gmail.com", Birthday = new DateTime(2000, 1, 9), BaseSalary = 4000.0, Department = d3 };
-        Seller s6 = new Seller { Id = 6, Name = "Alex Pink", Email = "alexP@gmail.com", Birthday = new DateTime(1997, 3, 4), BaseSalary = 3000.0, Department = d2 };
+        Seller s1 = new Seller { Id = 1, Name = "Bob Brown", Email = "bob@gmail.com", BirthDate = new DateTime(1998, 4, 21), BaseSalary = 1000.0, Department = d1 };
+        Seller s2 = new Seller { Id = 2, Name = "Maria Green", Email = "maria@gmail.com", BirthDate = new DateTime(1979, 12, 31), BaseSalary = 3500.0, Department = d2 };
+        Seller s3 = new Seller { Id = 3, Name = "Alex Grey", Email = "alexG@gmail.com", BirthDate = new DateTime(1988, 1, 15), BaseSalary = 2200.0, Department = d1 };
+        Seller s4 = new Seller { Id = 4, Name = "Martha Red", Email = "martha@gmail.com", BirthDate = new DateTime(1993, 11, 30), BaseSalary = 3000.0, Department = d4 };
+        Seller s5 = new Seller { Id = 5, Name = "Donald Blue", Email = "donald@gmail.com", BirthDate = new DateTime(2000, 1, 9), BaseSalary = 4000.0, Department = d3 };
+        Seller s6 = new Seller { Id = 6, Name = "Alex Pink", Email = "alexP@gmail.com", BirthDate = new DateTime(1997, 3, 4), BaseSalary = 3000.0, Department = d2 };
         
         SalesRecord r1 = new SalesRecord { Id = 1, Date = new DateTime(2018, 09, 25), Amount = 11000.0, Status = SaleStatus.Billed, Seller = s1 };
         SalesRecord r2 = new SalesRecord { Id = 2, Date = new DateTime(2018, 09, 4), Amount = 7000.0, Status = SaleStatus.Billed, Seller = s5 };

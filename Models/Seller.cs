@@ -1,11 +1,22 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace SalesWebMVC.Models;
 
 public class Seller
 {
     public int Id { get; set; }
     public string Name { get; set; }
+
+    [DataType(DataType.EmailAddress)]
     public string Email { get; set; }
-    public DateTime Birthday { get; set; }
+
+    [Display(Name = "Birth Date")]
+    [DataType(DataType.Date)]
+    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+    public DateTime BirthDate { get; set; }
+
+    [Display(Name = "Base Salary")]
+    [DisplayFormat(DataFormatString = "{0:F2}")]
     public double BaseSalary { get; set; }
     public Department Department { get; set; }
     public int DepartmentId { get; set; }
@@ -18,14 +29,14 @@ public class Seller
     public Seller(int id,
                   string name,
                   string email,
-                  DateTime birthday,
+                  DateTime birthdate,
                   double baseSalary,
                   Department department)
     {
         Id = id;
         Name = name;
         Email = email;
-        Birthday = birthday;
+        BirthDate = birthdate;
         BaseSalary = baseSalary;
         Department = department;
     }
